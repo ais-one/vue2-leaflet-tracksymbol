@@ -28,7 +28,7 @@ Thanks to [Julián Perelli](https://jperelli.com.ar/) of [markercluster plugin](
     npm install
 
     # install the library
-    npm install --save vue2-leaflet-tracksymbol-?.?.?.tgz
+    npm install --no-save vue2-leaflet-tracksymbol-?.?.?.tgz
     # where ?.?.? is the version
 
 ### run the app
@@ -136,6 +136,10 @@ MIT
 
 ## Changes
 
+* 1.0.11
+  * Upgrade to Vue2Leaflet v1.0.1 (breaking changes)
+  * Update development installation instructions of local npm package from --save to --nosave
+  * future release notes will be in github release (master branch) and not here in README.MD
 * 1.0.10
   * fix issue #2
 * 1.0.9

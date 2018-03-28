@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "vue": "^2.5.11",
-    "vue2-leaflet": "0.0.58"
+    "vue2-leaflet": "1.0.1"
   },
   "browserslist": [
     "> 1%",
