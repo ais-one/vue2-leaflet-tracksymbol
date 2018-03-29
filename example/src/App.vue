@@ -17,9 +17,9 @@ import Vue2LeafletTracksymbol from 'vue2-leaflet-tracksymbol'
 
 Vue.component('v-ais', Vue2LeafletTracksymbol)
 
-Vue.component('v-map', Vue2Leaflet.Map);
-Vue.component('v-tilelayer', Vue2Leaflet.TileLayer);
-Vue.component('v-marker', Vue2Leaflet.Marker);
+Vue.component('v-map', Vue2Leaflet.LMap);
+Vue.component('v-tilelayer', Vue2Leaflet.LTileLayer);
+Vue.component('v-marker', Vue2Leaflet.LMarker);
 
 export default {
   name: 'app',

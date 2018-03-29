@@ -8,23 +8,7 @@
 import L from 'leaflet'
 import 'leaflet-tracksymbol'
 
-import eventsBinder from './utils/eventsBinder.js'
 import propsBinder from './utils/propsBinder.js'
-
-const events = [
-  'click',
-  'dblclick',
-  'mousedown',
-  'mouseover',
-  'mouseout',
-  'contextmenu',
-  'add',
-  'remove',
-  'popupopen',
-  'popupclose',
-  'tooltipopen',
-  'tooltipclose'
-];
 
 const props = {
   latLng: {
@@ -65,7 +49,6 @@ export default {
     options.data = this.options.data || {}
 
     this.mapObject = L.trackSymbol(this.latLng, options)
-    eventsBinder(this, this.mapObject, events)
     propsBinder(this, this.mapObject, props)
     if (this.$parent._isMounted) {
       this.deferredMountedTo(this.$parent.mapObject)
