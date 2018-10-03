@@ -6,9 +6,8 @@
 
 <script>
 import L from 'leaflet'
+import { findRealParent, propsBinder } from 'vue2-leaflet'
 import 'leaflet-tracksymbol'
-
-import propsBinder from './utils/propsBinder.js'
 
 const props = {
   latLng: {
@@ -49,25 +48,16 @@ export default {
     options.data = this.options.data || {}
 
     this.mapObject = L.trackSymbol(this.latLng, options)
-    propsBinder(this, this.mapObject, props)
-    if (this.$parent._isMounted) {
-      this.deferredMountedTo(this.$parent.mapObject)
-    }
+    L.DomEvent.on(this.mapObject, this.$listeners);
+    propsBinder(this, this.mapObject, props);
+    this.ready = true;
+    this.parentContainer = findRealParent(this.$parent);
+    this.parentContainer.addLayer(this, !this.visible);
   },
   beforeDestroy () {
-    this.setVisible(false)
+    this.parentContainer.removeLayer(this);
   },
   methods: {
-    deferredMountedTo (parent) {
-      this.parent = parent
-      var that = this.mapObject
-      for (var i = 0; i < this.$children.length; i++) {
-        this.$children[i].deferredMountedTo(that)
-      }
-      if (this.visible) {
-        this.mapObject.addTo(parent)
-      }
-    },
     setVisible (newVal, oldVal) {
       if (newVal === oldVal) return
       if (this.mapObject) {
