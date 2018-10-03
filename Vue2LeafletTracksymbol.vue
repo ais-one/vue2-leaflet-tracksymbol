@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot></slot>
+    <slot v-if="ready"></slot>
   </div>
 </template>
 
@@ -25,6 +25,11 @@ const props = {
 
 export default {
   props: props,
+  data () {
+    return {
+      ready: false
+    };
+  },  
   mounted () {
     let options = { }
     options.trackId = this.options.trackId || 0
