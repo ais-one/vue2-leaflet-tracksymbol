@@ -4,6 +4,7 @@ This is a [tracksymbol plugin](https://github.com/lethexa/leaflet-tracksymbol) e
 
 Thanks to [Julián Perelli](https://jperelli.com.ar/) of [markercluster plugin](https://github.com/Leaflet/Leaflet.markercluster) extension for providing the basis to build this plugin
 
+Thanks to [Chris Richards](https://github.com/chrisrichards) for fixing major issue on bindings
 
 ## Develop and build from Github Repo - For Developers maintaining this component
 
@@ -64,7 +65,9 @@ You can refer to the App.vue file of the included example on how it is done
         <v-map  style="height: 90%" :zoom=13 :center="mapCenter">
           <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
           <!-- v-marker :lat-lng="location"></v-marker -->
-          <v-ais :lat-lng="location" :options="options"></v-ais>
+          <v-ais :lat-lng="location" :options="options">
+            <v-popup content="Boat 2" />
+          </v-ais>
         </v-map>
       </div>
     </template>
@@ -73,10 +76,11 @@ You can refer to the App.vue file of the included example on how it is done
     import Vue from 'vue'
     import Vue2Leaflet from 'vue2-leaflet';
 
-    import Vue2LeafletTracksymbol from 'vue2-leaflet-tracksymbol'
+    // import Vue2LeafletTracksymbol from 'vue2-leaflet-tracksymbol' // this is for production
+    import Vue2LeafletTracksymbol from './Vue2LeafletTracksymbol' // this is used in development to work on the source
 
     Vue.component('v-ais', Vue2LeafletTracksymbol)
-
+    Vue.component('v-popup', Vue2Leaflet.LPopup)
     Vue.component('v-map', Vue2Leaflet.Map);
     Vue.component('v-tilelayer', Vue2Leaflet.TileLayer);
     Vue.component('v-marker', Vue2Leaflet.Marker);
@@ -124,7 +128,7 @@ You can refer to the App.vue file of the included example on how it is done
     </style>
 
 ### run the app
-    npm run dev
+    npm run serve
 
 ## Author
 
@@ -135,6 +139,11 @@ You can refer to the App.vue file of the included example on how it is done
 MIT
 
 ## Changes
+
+* 1.0.12
+  * fix: [issue 8](https://github.com/ais-one/vue2-leaflet-tracksymbol/issues/8) - thanks to Thanks to [Chris Richards] (https://github.com/chrisrichards)
+  * use vue-cli 3 for example and add v-popup code
+  * updated packages (9.6.13)
 
 * 1.0.11
   * Upgrade to Vue2Leaflet v1.0.1 (breaking changes)

@@ -4,22 +4,25 @@
     <v-map  style="height: 90%" :zoom=13 :center="mapCenter">
       <v-tilelayer url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"></v-tilelayer>
       <!-- v-marker :lat-lng="location"></v-marker -->
-      <v-ais :lat-lng="location" :options="options"></v-ais>
+      <v-ais :lat-lng="location" :options="options">
+         <v-popup content="Boat 2" />
+      </v-ais>
     </v-map>
   </div>
 </template>
 
 <script>
 import Vue from 'vue'
-import Vue2Leaflet from 'vue2-leaflet';
+import Vue2Leaflet from 'vue2-leaflet'
 
-import Vue2LeafletTracksymbol from 'vue2-leaflet-tracksymbol'
+// import Vue2LeafletTracksymbol from 'vue2-leaflet-tracksymbol' // this is for production
+import Vue2LeafletTracksymbol from './Vue2LeafletTracksymbol' // this is used in development to work on the source
 
 Vue.component('v-ais', Vue2LeafletTracksymbol)
-
-Vue.component('v-map', Vue2Leaflet.LMap);
-Vue.component('v-tilelayer', Vue2Leaflet.LTileLayer);
-Vue.component('v-marker', Vue2Leaflet.LMarker);
+Vue.component('v-popup', Vue2Leaflet.LPopup)
+Vue.component('v-map', Vue2Leaflet.LMap)
+Vue.component('v-tilelayer', Vue2Leaflet.LTileLayer)
+Vue.component('v-marker', Vue2Leaflet.LMarker)
 
 export default {
   name: 'app',
