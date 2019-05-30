@@ -13,16 +13,16 @@
 
 <script>
 import Vue from 'vue'
-import Vue2Leaflet from 'vue2-leaflet'
+import { LPopup, LMap, LTileLayer, LMarker } from 'vue2-leaflet'
 
 // import Vue2LeafletTracksymbol from 'vue2-leaflet-tracksymbol' // this is for production
 import Vue2LeafletTracksymbol from './Vue2LeafletTracksymbol' // this is used in development to work on the source
 
 Vue.component('v-ais', Vue2LeafletTracksymbol)
-Vue.component('v-popup', Vue2Leaflet.LPopup)
-Vue.component('v-map', Vue2Leaflet.LMap)
-Vue.component('v-tilelayer', Vue2Leaflet.LTileLayer)
-Vue.component('v-marker', Vue2Leaflet.LMarker)
+Vue.component('v-popup', LPopup)
+Vue.component('v-map', LMap)
+Vue.component('v-tilelayer', LTileLayer)
+Vue.component('v-marker', LMarker)
 
 export default {
   name: 'app',
@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style>
-@import "~leaflet/dist/leaflet.css";
+/* @import "~leaflet/dist/leaflet.css"; */
 
 #app {
   width: 1024px;
