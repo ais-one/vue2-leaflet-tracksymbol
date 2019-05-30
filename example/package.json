@@ -8,8 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "leaflet": "^1.5.1",
     "vue": "^2.5.17",
-    "vue2-leaflet": "^1.2.3"
+    "vue2-leaflet": "^2.1.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
