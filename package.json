@@ -1,6 +1,6 @@
 {
   "name": "vue2-leaflet-tracksymbol",
-  "version": "2.1.1",
+  "version": "2.0.0",
   "description": "tracksymbol plugin extension for vue2-leaflet package",
   "main": "dist/Vue2LeafletTracksymbol.js",
   "scripts": {
